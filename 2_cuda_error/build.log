@@ -1,0 +1,24 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Found OpenCV: /usr/local (found version "4.5.4")
+-- Found Eigen3: /usr/include/eigen3 (found version "3.4.0")
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found CUDA: /usr/local/cuda-12.1
+-- Found CuDNN: /usr/local/cuda/lib64/libcudnn.so (found version "8.9.1")
+CMake Error at cuda/CMakeLists.txt:22:
+  CUDA architecture 5.2 is not supported by CUDA 12.1
+-- Configuring incomplete, errors occurred!
+
+Build log shows:
+[1/127] Building CXX object src/CMakeFiles/utils.dir/utils.cpp.o
+[2/127] Building CXX object src/CMakeFiles/core.dir/image_proc.cpp.o
+nvcc fatal: Unsupported gpu architecture 'compute_52'
+make[2]: *** [cuda/CMakeFiles/cuda_kernels.dir/build.make:89: cuda/CMakeFiles/cuda_kernels.dir/kernels.cu.o] Error 1
