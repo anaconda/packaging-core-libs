@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.10)
 project(CalculatorLibV1)
 
-cmake_policy(SET CMP0177 NEW)
+if(POLICY CMP0177)
+    cmake_policy(SET CMP0177 NEW)
+endif()
 
 add_library(calculator SHARED src/calculator.cpp)
 

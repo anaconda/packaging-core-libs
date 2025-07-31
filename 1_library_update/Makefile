@@ -1,8 +1,8 @@
 # Variables
 DIST_DIR = dist
-LIB_V1_DIR = lib_v1
-LIB_V2_DIR = lib_v2
-LIB_V3_DIR = lib_v3
+LIB_V1_DIR = lib-v1
+LIB_V2_DIR = lib-v2
+LIB_V3_DIR = lib-v3
 
 # Default target
 all: help
@@ -18,21 +18,21 @@ help:
 	@echo "  clean-lib - Clean build artifacts for libraries"
 	@echo "  clean-all - Clean build artifacts for libraries and application"
 
-# Build and install lib_v1
+# Build and install lib-v1
 lib-v1: clean-lib
-	@echo "Building lib_v1..."
+	@echo "Building lib-v1..."
 	mkdir -p $(DIST_DIR)/lib $(DIST_DIR)/include
 	cd $(LIB_V1_DIR) && mkdir -p build && cd build && cmake .. && make && make install
 
-# Build and install lib_v2
+# Build and install lib-v2
 lib-v2: clean-lib
-	@echo "Building lib_v2..."
+	@echo "Building lib-v2..."
 	mkdir -p $(DIST_DIR)/lib $(DIST_DIR)/include
 	cd $(LIB_V2_DIR) && mkdir -p build && cd build && cmake .. && make && make install
 
-# Build and install lib_v3 (keeps existing app for ABI testing)
+# Build and install lib-v3 (keeps existing app for ABI testing)
 lib-v3: clean-lib
-	@echo "Building lib_v3..."
+	@echo "Building lib-v3..."
 	mkdir -p $(DIST_DIR)/lib $(DIST_DIR)/include
 	cd $(LIB_V3_DIR) && mkdir -p build && cd build && cmake .. && make && make install
 
