@@ -9,8 +9,8 @@ int main() {
     std::cout << "Calculator library version " << calc.version << std::endl;
 
     // Add two numbers.
-    const float a = 5.7358742;
-    const float b = 3.2812366;
+    const float a = 5.7358742f;
+    const float b = 3.2812366f;
     std::cout << "Performing addition..." << std::endl;
     std::cout << a << " + " << b << " = " << calc.add(a, b) << std::endl;
 
