@@ -1,23 +1,21 @@
-cmake_minimum_required(VERSION 3.10)
-project(CalculatorApp)
+cmake_minimum_required(VERSION 3.12)
+project(CalculatorApp VERSION 1.0.0 LANGUAGES CXX)
 
-if(POLICY CMP0177)
-    cmake_policy(SET CMP0177 NEW)
+option(LIB_VER "The version of the calculator library to build the app against.")
+if(NOT LIB_VER)
+    set(LIB_VER 1)
 endif()
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(calculator_app main.cpp)
+include_directories(calculator PUBLIC lib-v${LIB_VER}/include)
 
-target_include_directories(calculator_app PRIVATE ${CMAKE_SOURCE_DIR}/dist/include)
-target_link_directories(calculator_app PRIVATE ${CMAKE_SOURCE_DIR}/dist/lib)
-
-target_link_libraries(calculator_app calculator)
-
-set_target_properties(calculator_app PROPERTIES
-    INSTALL_RPATH "\${ORIGIN}/../lib"
-    BUILD_WITH_INSTALL_RPATH TRUE
+add_library(calculator SHARED lib-v${LIB_VER}/src/calculator.cpp)
+set_target_properties(calculator PROPERTIES
+        VERSION ${LIB_VER}.0.0
+        SOVERSION 1
 )
 
-install(TARGETS calculator_app RUNTIME DESTINATION ${CMAKE_SOURCE_DIR}/dist/bin)
+add_executable(calculator_app main.cpp)
+target_link_libraries(calculator_app calculator)

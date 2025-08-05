@@ -8,8 +8,8 @@ public:
 
     float add(float a, float b, int precision);
 
-    float last_result;
     char version[16];
+    float lastResult;
 };
 
 #endif // CALCULATOR_H

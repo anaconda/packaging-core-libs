@@ -9,7 +9,9 @@ public:
     float add(float a, float b, int precision);
 
     char version[16];
-    float last_result;
+    float lastA;
+    float lastB;
+    float lastResult;
 };
 
 #endif // CALCULATOR_H
